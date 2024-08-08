@@ -1,6 +1,6 @@
 const buildHtmlDoc = (
   [initialHtml, initialData]: [string, string?],
-  withScript = true,
+  withScript = true
 ): string => `<!doctype html>
 <html lang="en">
 <head>
@@ -11,9 +11,13 @@ const buildHtmlDoc = (
     <title>People Directory</title>
 </head>
     <body>
-        ${initialData ? `<script>window.__INITIAL_DATA__ = '${initialData}'</script>` : ''}
+        ${
+          initialData
+            ? `<script>window.__INITIAL_DATA__ = '${initialData}'</script>`
+            : ""
+        }
         <div id="app">${initialHtml}</div>
-        ${withScript ? '<script src="/client.js"></script>' : ''}
+        ${withScript ? '<script src="/client.js"></script>' : ""}
     </body>
 </html>`;
 
